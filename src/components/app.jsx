@@ -9,24 +9,20 @@ import Todo from './todo.jsx';
 const STORE_KEY = 'USE_DARK_MODE';
 
 class App extends React.Component {
-	state = {
-		checkedInput: false
-	};
-
-	componentWillMount() {
-		if (typeof localStorage !== 'undefined') {
-			const checked = localStorage.getItem(STORE_KEY) || false;
-			this.setState({ checkedInput: JSON.parse(checked) });
-		}
+		state = {
+			weather: {}
+		};
+		
+	componentDidMount(){
+		this.fetchWeather();
 	}
-
-	fetchWeather() {
-		axios.get('https://api.apixu.com/v1/forecast.json?key=13087ffb0deb471d8d934851181803&days=5&q=auto:ip …')
+	fetchWeather =()=> {
+		axios.get('https://api.apixu.com/v1/forecast.json?key=13087ffb0deb471d8d934851181803&days=5&q=auto:ip')
 		.then((response) => {
 			console.log(response)
 		});
 		
-	}
+	};
 
 	render() {
 		let now = new Date("Sun Mar 18 2018 03:22:59 GMT+0100")
