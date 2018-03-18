@@ -1,25 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Time from 'react-time';
-import ReactWeather from 'react-open-weather';
 import axios from 'axios';
 import Todo from './todo.jsx';
 
 
-const STORE_KEY = 'USE_DARK_MODE';
-
 class App extends React.Component {
 		state = {
-			weather: {}
+			city: '',
+			temp: ''
 		};
 		
 	componentDidMount(){
 		this.fetchWeather();
 	}
-	fetchWeather =()=> {
+	fetchWeather = () => {
 		axios.get('https://api.apixu.com/v1/forecast.json?key=13087ffb0deb471d8d934851181803&days=5&q=auto:ip')
 		.then((response) => {
 			console.log(response)
+			this.setState({
+				city: response.data.location.name,
+				temp: response.data.current.condition.temp_c
+			});
 		});
 		
 	};
@@ -34,11 +35,7 @@ class App extends React.Component {
 							Link
         				</a>
 						<div class="weather">
-							<ReactWeather
-								forecast="today"
-								apikey="13087ffb0deb471d8d934851181803"
-								type="auto"
-							/>
+							
 						</div>
 					</div>
 					<div class="section">
