@@ -19,13 +19,14 @@ class App extends React.Component {
 			console.log(response)
 			this.setState({
 				city: response.data.location.name,
-				temp: response.data.current.condition.temp_c
+				temp: response.data.current.temp_c
 			});
 		});
 		
 	};
 
 	render() {
+		console.log(this.state);
 		let now = new Date("Sun Mar 18 2018 03:22:59 GMT+0100")
 		return (
 			<div id="wrapper" class="body">
@@ -35,7 +36,8 @@ class App extends React.Component {
 							Link
         				</a>
 						<div class="weather">
-							
+							<p>{this.state.city}</p>
+							<p>{this.state.temp}</p>
 						</div>
 					</div>
 					<div class="section">
