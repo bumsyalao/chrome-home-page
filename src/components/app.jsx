@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Time from 'react-time';
 import ReactWeather from 'react-open-weather';
-import todos from './todo.jsx';
+import axios from 'axios';
+import Todo from './todo.jsx';
 
 
 const STORE_KEY = 'USE_DARK_MODE';
@@ -17,6 +18,14 @@ class App extends React.Component {
 			const checked = localStorage.getItem(STORE_KEY) || false;
 			this.setState({ checkedInput: JSON.parse(checked) });
 		}
+	}
+
+	fetchWeather() {
+		axios.get('https://api.apixu.com/v1/forecast.json?key=13087ffb0deb471d8d934851181803&days=5&q=auto:ip …')
+		.then((response) => {
+			console.log(response)
+		});
+		
 	}
 
 	render() {
@@ -48,7 +57,16 @@ class App extends React.Component {
 					<div class="bottom">
 						<p class="country"> Lagos, Nigeria </p>
 						<p class="quote">“To be beautiful means to be yourself. You don't need to be accepted by others. You need to be yourself.”</p>
-						<p class="todo">Todo</p>
+						<p class="todo">
+							<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+								Todo
+  							</button>
+						</p>
+						<div class="collapse" id="collapseExample">
+							<div class="card card-body">
+								<Todo />
+							</div>
+						</div>
 					</div>
 				</main>
 			</div>
