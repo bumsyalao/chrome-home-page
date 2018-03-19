@@ -1,6 +1,6 @@
 $primary: #fff;
 $grey: rgba(15,15,15,.925);
-$secondary: rgba(15,15,15,.925);
+$second: rgba(15,15,15,.925);
 
 %reset {
 	margin: 0;
@@ -65,10 +65,10 @@ $secondary: rgba(15,15,15,.925);
 
 	button {
 		@extend %transition;
-		background: $secondary;
-		border-left: 1px solid ($secondary * 1.05);
+		background: $second;
+		border-left: 1px solid ($second * 1.05);
 		&:hover {
-			background: $secondary * 1.1;
+			background: $second * 1.1;
 		}
 	}
 }
