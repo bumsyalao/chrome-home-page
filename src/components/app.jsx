@@ -14,9 +14,6 @@ class App extends React.Component {
 
 	componentDidMount() {
 		this.fetchWeather();
-		$('#myCollapsible').collapse({
-			toggle: false
-		  })
 	}
 	fetchWeather = () => {
 		axios.get('https://api.apixu.com/v1/forecast.json?key=13087ffb0deb471d8d934851181803&days=5&q=auto:ip')
@@ -55,16 +52,8 @@ class App extends React.Component {
 					<div class="bottom">
 						<p class="country"> Lagos, Nigeria </p>
 						<p class="quote">“To be beautiful means to be yourself. You don't need to be accepted by others. You need to be yourself.”</p>
-						<p class="todo">
-							<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-								Todo
-  							</a>
+						<p class="todo">Todo
 						</p>
-						<div class="collapse" id="collapseExample">
-							<div class="card card-body">
-								<Todo/>
-  							</div>
-						</div>
 					</div>
 				</main>
 			</div>
