@@ -31,5 +31,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`Resume running on port ${port} in ${ENVIRONMENT} mode`);
+	console.log(`Chrome-homepage running on port ${port} in ${ENVIRONMENT} mode`);
 });
